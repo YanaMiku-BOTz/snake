@@ -2,7 +2,7 @@ name: Generate Snake
 
 on:
   schedule:
-    # menjalankan setiap 6 jam
+    # Menjalankan setiap 6 jam
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Generate snake gif dan svg
+      # Generate Snake GIF dan SVG
       - name: Generate Snake GIF and SVG
         uses: Platane/snk@master
         with:
@@ -29,5 +29,4 @@ jobs:
         with:
           target_branch: output
           build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.GH_PAT }}  # GUNAKAN PAT yang kamu buat
